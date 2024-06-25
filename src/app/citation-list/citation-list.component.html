@@ -1,0 +1,30 @@
+<!-- AFFICHAGE DES CITATIONS -->
+<section class="citationsList">
+    <div class="container my-5">
+
+        <button routerLink="/citation-create" class="btn btn-primary mb-4">Creer une nouvelle citations</button>
+
+        <h1 class="mb-4">LES CITATIONS DE JEUX VIDEOS</h1>
+
+        <div class="row">
+            <div *ngFor="let citation of citations" class="col-4">
+                <div class="carte mb-4">
+                    <div class="image">
+                        <img src="{{citation.image}}" alt="" class="img-fluid" style="height: 233px;">
+                    </div>
+                    <div class="content">
+                        <div class="content-top align-items-center d-flex">
+                            {{citation.phrase}}
+                        </div><hr>
+                        <div class="content-bottom">
+                            {{citation.game}}
+                        </div><hr>
+                        <div class="content-bottom">
+                            <button [routerLink]="['/citation-details', citation.id]" class="btn btn-primary">Voir plus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

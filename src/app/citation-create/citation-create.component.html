@@ -1,0 +1,21 @@
+<div class="container my-5">
+
+  <form (ngSubmit)="onSubmit()" #citationForm="ngForm">
+    <div class="form-group">
+      <label for="phrase">Phrase</label>
+      <input type="text" id="phrase" class="form-control" [(ngModel)]="citation.phrase" name="phrase">
+    </div>
+    <div class="form-group">
+      <label for="game">Game</label>
+      <input type="text" id="game" class="form-control" [(ngModel)]="citation.game" name="game">
+    </div>
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="text" id="image" class="form-control" [(ngModel)]="citation.image" name="image">
+    </div>
+    <p class="m-0">For test : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpfv3HuTY0ZCT1JjQ3kZMpUZUk05KE8u4hZw&s</p>
+    <button type="submit" class="btn btn-primary mt-4">Create Citation</button>
+  </form>
+
+</div>
+  
