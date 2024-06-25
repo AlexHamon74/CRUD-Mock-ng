@@ -1,28 +1,30 @@
 import { NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { mockCitation } from '../shared/mockCitation';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CitationsService } from '../shared/citations.service';
+import { citationInterface } from '../shared/entities';
 
 @Component({
   selector: 'app-citation-details',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, RouterLink],
   templateUrl: './citation-details.component.html',
   styleUrl: './citation-details.component.css'
 })
 export class CitationDetailsComponent implements OnInit{
 
-  citation: any;
+  citation: citationInterface | undefined;
+  service = inject(CitationsService);
 
   constructor(private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.getCitationById(id);
+    this.getCitationById();
   }
-
-  getCitationById(id :number): void{
-    this.citation = mockCitation.find(citation => citation.id === id)
+  
+  getCitationById(): void{
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.citation = this.service.fetchById(id);
   }
 
 }

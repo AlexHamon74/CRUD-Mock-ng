@@ -1,4 +1,8 @@
-<div *ngIf="citation">
+<div *ngIf="citation; else noCitation">
     <img src="{{citation.image}}" alt="">
 
 </div>
+<ng-template #noCitation>
+    <p>Aucune citation trouvée.</p>
+  </ng-template>
+  
