@@ -6,8 +6,11 @@
 
         <h1 class="mb-4">LES CITATIONS DE JEUX VIDEOS</h1>
 
+        <label for="recherche" class="form-label">Recherche</label>
+        <input type="text" [(ngModel)]="terms" class="form-control mb-4" id="recherche">
+
         <div class="row">
-            <div *ngFor="let citation of citations" class="col-4">
+            <div *ngFor="let citation of citations | search:terms" class="col-4">
                 <div class="carte mb-4">
                     <div class="image">
                         <img src="{{citation.image}}" alt="" class="img-fluid" style="height: 233px;">

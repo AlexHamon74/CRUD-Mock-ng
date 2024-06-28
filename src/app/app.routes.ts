@@ -3,6 +3,7 @@ import { CitationListComponent } from './citation-list/citation-list.component';
 import { CitationDetailsComponent } from './citation-details/citation-details.component';
 import { CitationsAdminComponent } from './citations-admin/citations-admin.component';
 import { CitationCreateComponent } from './citation-create/citation-create.component';
+import { CitationEditComponent } from './citation-edit/citation-edit.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/citation-list', pathMatch:'full'},
@@ -10,4 +11,5 @@ export const routes: Routes = [
     {path: 'citation-details/:id', component:CitationDetailsComponent},
     {path: 'citation-admin', component:CitationsAdminComponent},
     {path: 'citation-create', component:CitationCreateComponent},
+    {path: 'citation-edit/:id', component:CitationEditComponent},
 ];

@@ -13,8 +13,17 @@ export class CitationsService {
     return mockCitation;
   };
 
-  fetchById(id :number) :citationInterface | undefined{
-    return mockCitation.find(citation => citation.id === id);
+  fetchById(id :any) :citationInterface | undefined{
+    return mockCitation.find(citation => citation.id == id);
+  }
+
+  postCitation(newCitation:citationInterface){
+    mockCitation.push(newCitation);
+  }
+
+  editCitation(id :any, updatedCitation: citationInterface){
+    const index = mockCitation.findIndex(citation => citation.id == id);
+    mockCitation[index] = updatedCitation;
   }
 
 }
