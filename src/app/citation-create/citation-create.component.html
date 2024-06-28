@@ -1,21 +1,36 @@
 <div class="container my-5">
 
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
     <div class="form-group">
       <label for="phrase">Phrase</label>
-      <input type="text" id="phrase" class="form-control" formControlName = phrase>
+      <div *ngIf="isSubmitted && form.controls['phrase'].invalid" class="alert alert-danger" role="alert">
+        Veuillez remplir le champ
+      </div>
+      <input type="text" id="phrase" class="form-control mb-3" formControlName=phrase>
     </div>
+
+
     <div class="form-group">
       <label for="game">Game</label>
-      <input type="text" id="game" class="form-control" formControlName = game>
+      <div *ngIf="isSubmitted && form.controls['game'].invalid" class="alert alert-danger" role="alert">
+        Veuillez remplir le champ
+      </div>
+      <input type="text" id="game" class="form-control mb-3" formControlName=game>
     </div>
+
+
     <div class="form-group">
       <label for="image">Image URL</label>
-      <input type="text" id="image" class="form-control" formControlName = image>
+      <div *ngIf="isSubmitted && form.controls['image'].invalid" class="alert alert-danger" role="alert">
+        <div *ngIf="hasError('image', 'required')">Image URL est requis</div>
+        <div *ngIf="hasError('image', 'minlength')">Image URL doit avoir au moins 4 caractères</div>
+      </div>
+      <input type="text" id="image" class="form-control mb-3" formControlName=image>
     </div>
-    <p class="m-0">For test : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpfv3HuTY0ZCT1JjQ3kZMpUZUk05KE8u4hZw&s</p>
-    <button type="submit" class="btn btn-primary mt-4">Create Citation</button>
+
+
+    <button type="submit" class="btn btn-primary">Create Citation</button>
   </form>
 
 </div>
-  

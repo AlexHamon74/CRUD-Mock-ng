@@ -18,7 +18,11 @@ export class CitationsService {
   }
 
   postCitation(newCitation:citationInterface){
+    newCitation.id = this.generateId(); // modif
     mockCitation.push(newCitation);
+  }
+  private generateId(): number {  // modif
+    return mockCitation.length > 0 ? Math.max(...mockCitation.map(c => c.id)) + 1 : 1;
   }
 
   editCitation(id :any, updatedCitation: citationInterface){

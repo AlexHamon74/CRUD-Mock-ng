@@ -2,12 +2,15 @@
 <section class="citationsList">
     <div class="container my-5">
 
-        <button routerLink="/citation-create" class="btn btn-primary mb-4">Creer une nouvelle citations</button>
+        <div class="header">
+            <h1 class="mb-4">LES CITATIONS DE JEUX VIDEOS</h1>
+            <button routerLink="/citation-create" class="btn btn-primary mb-4">Creer une nouvelle citations</button>
+        </div>
 
-        <h1 class="mb-4">LES CITATIONS DE JEUX VIDEOS</h1>
-
-        <label for="recherche" class="form-label">Recherche</label>
-        <input type="text" [(ngModel)]="terms" class="form-control mb-4" id="recherche">
+        <div class="form">
+            <label for="recherche" class="form-label">Recherche</label>
+            <input type="text" [(ngModel)]="terms" class="form-control mb-4" id="recherche">
+        </div>
 
         <div class="row">
             <div *ngFor="let citation of citations | search:terms" class="col-4">
